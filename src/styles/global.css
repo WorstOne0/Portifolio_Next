@@ -1,20 +1,16 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-primary: #0b5ecd;
-  --color-dark: #111923;
-  --color-darker: #112034;
-  --color-background-dark: #121212;
-  --color-text-base: #d4c2ff;
+  --primary: #0b5ecd;
+  --dark: #111923;
+  --darker: #112034;
+  --background-dark: #121212;
+  --text-base: #d4c2ff;
 
-  --color-white: #fff;
-  --color-black: #111;
+  --white: #fff;
+  --black: #111;
 
   font-size: 62.5%;
 }
@@ -33,6 +29,5 @@ body,
 }
 
 body {
-  font-family: Nunito;
   font-size: 1.8rem;
 }

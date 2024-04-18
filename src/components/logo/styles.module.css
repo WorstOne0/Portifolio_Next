@@ -1,6 +1,6 @@
 .main {
   width: 100%;
-  background: var(--color-background-dark);
+  background: var(--background-dark);
 
   display: flex;
   justify-content: center;

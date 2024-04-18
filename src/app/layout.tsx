@@ -31,7 +31,7 @@ export default function RootLayout({
         ) : (
           <>
             <NavBar />
-            <div className="w-full overflow-y-scroll">{children}</div>
+            <div className="grow overflow-y-scroll">{children}</div>
           </>
         )}
       </body>
