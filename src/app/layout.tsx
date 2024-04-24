@@ -31,7 +31,10 @@ export default function RootLayout({
         ) : (
           <>
             <NavBar />
-            <div className="grow overflow-y-scroll">{children}</div>
+            <div className="grow overflow-y-scroll relative">
+              {children}
+              <div className="h-full fixed top-0 right-10 z-10 flex items-center text-red-200">Teste</div>
+            </div>
           </>
         )}
       </body>
