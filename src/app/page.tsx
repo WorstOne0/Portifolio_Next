@@ -4,9 +4,9 @@ import Projects from "@/app/(landing)/_projects/page";
 
 export default function Landing() {
   return (
-    <main className="w-full">
+    <div className="h-full w-full flex flex-col flex-nowrap overflow-y-auto">
       <Home />
       <Projects />
-    </main>
+    </div>
   );
 }

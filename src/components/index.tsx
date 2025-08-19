@@ -1,7 +1,19 @@
 // Components
 import NavBar from "./nav_bar";
-import Logo from "./logo";
-import Card from "./card";
+import Intro from "./intro";
+//
+import { Card, CardHeader, CardFooter, CardTitle, CardAction, CardDescription, CardContent } from "./ui/card";
 
 // Export Components
-export { NavBar, Logo, Card };
+export {
+  NavBar,
+  Intro,
+  //
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardAction,
+  CardDescription,
+  CardContent,
+};

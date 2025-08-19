@@ -1,11 +1,15 @@
 "use client";
+
 // Next
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { Nunito } from "next/font/google";
-// Components
-import { NavBar, Logo } from "@/components";
+//
+import { Intro, NavBar } from "@/components";
+// Services
+import { ThemeProvider } from "@/services";
 // Styles
-import "@/styles/global.css";
+import "@/styles/globals.css";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -14,29 +18,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isShowingLogo, setShowingLogo] = useState(true);
+  // const { theme, setTheme } = useTheme();
+  const [isShowingIntro, setShowingIntro] = useState(true);
 
   useEffect(() => {
-    //
-    setTimeout(() => {
-      setShowingLogo(false);
-    }, 2800);
+    setTimeout(() => setShowingIntro(false), 2800);
+    // setTheme("light");
   }, []);
 
   return (
-    <html lang="en">
-      <body className={`w-full flex ${nunito.className} antialiased`}>
-        {isShowingLogo ? (
-          <Logo />
-        ) : (
-          <>
-            <NavBar />
-            <div className="grow overflow-y-scroll relative">
-              {children}
-              <div className="h-full fixed top-0 right-10 z-10 flex items-center text-red-200">Teste</div>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`h-full w-full flex flex-col ${nunito.className} antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          {isShowingIntro ? (
+            <Intro />
+          ) : (
+            <div className="min-h-0 w-full grow flex relative">
+              <div className="h-full w-[10rem] absolute top-0 left-0">
+                <NavBar />
+              </div>
+              <div className="h-full min-w-0 grow">{children}</div>
             </div>
-          </>
-        )}
+          )}
+        </ThemeProvider>
       </body>
     </html>
   );
