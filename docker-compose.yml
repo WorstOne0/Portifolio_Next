@@ -3,9 +3,10 @@ version: "3"
 services:
   app:
     build: .
-    container_name: portifolio
+    container_name: chess
+    restart: unless-stopped
     environment:
-      - VIRTUAL_HOST=portifolio.kuuhaku.dev
+      - VIRTUAL_HOST=chess.kuuhaku.dev
     networks:
       - nginx-proxy
 
