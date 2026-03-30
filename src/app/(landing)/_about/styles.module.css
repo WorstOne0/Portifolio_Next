@@ -1,0 +1,159 @@
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--section-alt);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 8rem 8rem;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+/* Section header */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sectionTag {
+  font-size: 1.3rem;
+  color: var(--accent-light);
+  letter-spacing: 0.06em;
+  font-family: monospace;
+}
+
+.sectionTitle {
+  font-size: clamp(2.8rem, 4vw, 4.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+/* Bio */
+.bio {
+  font-size: 1.65rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 780px;
+}
+
+/* Columns */
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.columnTitle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.columnIcon {
+  color: var(--primary-light);
+  font-size: 1.8rem;
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timelineItem {
+  display: flex;
+  flex-direction: row;
+  gap: 1.6rem;
+  position: relative;
+  padding-bottom: 2.8rem;
+}
+
+.timelineDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid var(--primary-light);
+  flex-shrink: 0;
+  margin-top: 0.4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 5px;
+  top: 14px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary), transparent);
+}
+
+.timelineContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.itemRole {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.itemCompany {
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--primary-light);
+}
+
+.itemMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+  color: var(--text-muted);
+}
+
+.metaDot {
+  opacity: 0.5;
+}
+
+.itemLocation {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+
+.itemDesc {
+  font-size: 1.45rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-top: 0.4rem;
+}
