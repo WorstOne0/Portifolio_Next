@@ -16,18 +16,19 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
+  justify-content: center;
+  gap: 4rem;
 }
 
 /* ---- Text block ---- */
 .textBlock {
+  margin-left: -100px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1.2rem;
   flex: 1;
-  min-width: 0;
+  min-width: 800px;
 }
 
 .badge {
@@ -100,7 +101,9 @@
   font-size: 1.6rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s, transform 0.15s;
+  transition:
+    background 0.2s,
+    transform 0.15s;
   font-family: inherit;
   display: inline-flex;
   align-items: center;
@@ -138,7 +141,10 @@
   border-radius: 12px;
   cursor: default;
   min-width: 7rem;
-  transition: transform 0.2s, background 0.2s, border-color 0.2s;
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    border-color 0.2s;
   backdrop-filter: blur(4px);
 }
 
@@ -189,12 +195,14 @@
 }
 
 .scrollRocket {
+  margin-bottom: 10px;
   font-size: 1.8rem;
   display: block;
   transform: rotate(135deg);
 }
 
 .scrollText {
+  margin-top: 10px;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -202,6 +210,13 @@
 }
 
 @keyframes rocketBounce {
-  0%, 100% { transform: translateY(0);    opacity: 0.5; }
-  50%       { transform: translateY(6px); opacity: 1;   }
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
 }
