@@ -20,7 +20,6 @@ import {
   SiCplusplus,
 } from "react-icons/si";
 import { TbApi, TbLayoutDashboard, TbServer, TbDeviceMobile, TbTool } from "react-icons/tb";
-import styles from "./styles.module.css";
 
 type Skill = { name: string; icon: React.ReactNode; color: string };
 type Category = { key: keyof typeof skillMap; color: string; CatIcon: React.ReactNode };
@@ -68,23 +67,23 @@ export default function Skills() {
   const { t } = useLang();
 
   return (
-    <div id="skills" className={styles.container}>
-      <div className={styles.inner}>
+    <div id="skills" className="min-h-screen w-full bg-transparent flex justify-center items-start py-[8rem] px-[8rem]">
+      <div className="w-full max-w-[1200px] flex flex-col gap-[4rem]">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={styles.header}
+          className="flex flex-col gap-[0.8rem]"
         >
-          <span className={styles.sectionTag}>{`// ${t.skills.title.toLowerCase()}`}</span>
-          <h2 className={styles.sectionTitle}>{t.skills.title}</h2>
-          <p className={styles.sectionSubtitle}>{t.skills.subtitle}</p>
+          <span className="text-[1.3rem] text-[#7c3aed] tracking-[0.06em] font-mono">{`// ${t.skills.title.toLowerCase()}`}</span>
+          <h2 className="text-[clamp(2.8rem,4vw,4.2rem)] font-extrabold text-white leading-[1.1]">{t.skills.title}</h2>
+          <p className="text-[1.6rem] text-[var(--text-muted)]">{t.skills.subtitle}</p>
         </motion.div>
 
         {/* Categories */}
-        <div className={styles.categories}>
+        <div className="grid grid-cols-2 gap-[2.4rem]">
           {categories.map((cat, catIndex) => (
             <motion.div
               key={cat.key}
@@ -92,27 +91,29 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: catIndex * 0.1 }}
-              className={styles.category}
+              className="flex flex-col gap-0 p-[2.8rem] bg-[var(--glass)] border border-[var(--glass-border)] rounded-[18px] [border-top:3px_solid_var(--cat-color)] transition-[border-color,box-shadow] duration-[0.2s] hover:[box-shadow:0_8px_32px_rgba(0,0,0,0.25)] hover:[border-color:var(--cat-color)]"
               style={{ "--cat-color": cat.color } as React.CSSProperties}
             >
               {/* Card header */}
-              <div className={styles.catHeader}>
-                <span className={styles.catIcon} style={{ color: cat.color }}>
+              <div className="flex flex-row items-center gap-[1.2rem] mb-[1.6rem]">
+                <span className="text-[2.8rem] flex items-center shrink-0" style={{ color: cat.color }}>
                   {cat.CatIcon}
                 </span>
-                <div className={styles.catTitles}>
-                  <h3 className={styles.categoryTitle} style={{ color: cat.color }}>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-[1.6rem] font-bold tracking-[0.04em] uppercase leading-[1.2]" style={{ color: cat.color }}>
                     {t.skills.categories[cat.key]}
                   </h3>
-                  <p className={styles.categoryDesc}>{t.skills.categoryDesc[cat.key]}</p>
+                  <p className="text-[1.25rem] text-[var(--text-muted)] mt-[0.25rem] leading-[1.3]">{t.skills.categoryDesc[cat.key]}</p>
                 </div>
-                <span className={styles.catCount}>{skillMap[cat.key].length}</span>
+                <span className="text-[2.6rem] font-extrabold text-white/[0.06] font-mono shrink-0 leading-none">
+                  {skillMap[cat.key].length}
+                </span>
               </div>
 
-              <div className={styles.divider} style={{ background: `${cat.color}28` }} />
+              <div className="h-px w-full mb-[2rem] rounded-[1px]" style={{ background: `${cat.color}28` }} />
 
               {/* Skill badges */}
-              <div className={styles.skillsGrid}>
+              <div className="flex flex-wrap gap-[0.9rem]">
                 {skillMap[cat.key].map((skill, i) => (
                   <motion.div
                     key={skill.name}
@@ -120,12 +121,12 @@ export default function Skills() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: catIndex * 0.08 + i * 0.04 }}
-                    className={styles.skillBadge}
+                    className="inline-flex items-center gap-[0.65rem] py-[0.65rem] px-[1.3rem] bg-white/[0.04] border border-white/[0.09] rounded-[8px] cursor-default transition-[background,border-color,transform] duration-[0.18s] hover:bg-white/[0.09] hover:border-white/20 hover:-translate-y-[2px]"
                   >
-                    <span style={{ color: skill.color }} className={styles.skillIcon}>
+                    <span className="text-[1.7rem] flex items-center" style={{ color: skill.color }}>
                       {skill.icon}
                     </span>
-                    <span className={styles.skillName}>{skill.name}</span>
+                    <span className="text-[1.35rem] text-white/80 whitespace-nowrap">{skill.name}</span>
                   </motion.div>
                 ))}
               </div>

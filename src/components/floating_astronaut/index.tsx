@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FaUserAstronaut } from "react-icons/fa";
-import styles from "./styles.module.css";
 
 export default function FloatingAstronaut() {
   const [containerEl, setContainerEl] = useState<HTMLElement | null>(null);
@@ -16,21 +15,20 @@ export default function FloatingAstronaut() {
     container: containerEl ? { current: containerEl } : undefined,
   });
 
-  // Move astronaut vertically as user scrolls: starts at 10vh, ends at 80vh
   const y = useTransform(scrollYProgress, [0, 1], ["10vh", "75vh"]);
 
   return (
     <motion.div
-      className={styles.wrapper}
+      className="fixed right-[2.4rem] top-0 z-[15] flex flex-col items-center pointer-events-none select-none"
       style={{ y }}
       aria-hidden="true"
     >
       {/* Tether line above */}
-      <div className={styles.tether} />
+      <div className="w-px h-[6rem] bg-gradient-to-b from-transparent to-white/[0.15]" />
 
       {/* Astronaut */}
       <motion.div
-        className={styles.astronaut}
+        className="relative flex items-center justify-center"
         animate={{
           rotate: [0, 8, -6, 4, -8, 0],
           y: [0, -8, 4, -4, 6, 0],
@@ -41,13 +39,12 @@ export default function FloatingAstronaut() {
           ease: "easeInOut",
         }}
       >
-        <FaUserAstronaut className={styles.icon} />
-        {/* Glow */}
-        <div className={styles.glow} />
+        <FaUserAstronaut className="text-[3.2rem] text-white/60 [filter:drop-shadow(0_0_6px_rgba(59,130,246,0.5))_drop-shadow(0_2px_12px_rgba(0,0,0,0.4))]" />
+        <div className="absolute w-[6rem] h-[6rem] rounded-full pointer-events-none [background:radial-gradient(circle,rgba(59,130,246,0.12)_0%,transparent_70%)]" />
       </motion.div>
 
       {/* Tether line below */}
-      <div className={styles.tetherBottom} />
+      <div className="w-px h-[4rem] bg-gradient-to-b from-white/10 to-transparent" />
     </motion.div>
   );
 }

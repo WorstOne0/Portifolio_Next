@@ -1,9 +1,0 @@
-.main {
-  height: 100%;
-  width: 100%;
-  background: var(--background-dark);
-}
-
-.opacity {
-  background: rgba(255, 255, 255, 0.05);
-}
