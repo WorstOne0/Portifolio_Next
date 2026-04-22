@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import { useLang } from "@/context/language";
+// Icons
 import { FaRocket, FaUserAstronaut } from "react-icons/fa";
 import { TbHome2, TbBrain, TbBriefcase, TbSend } from "react-icons/tb";
-import { useLang } from "@/context/language";
 
 const sectionIds = ["home", "about", "skills", "projects", "contact"];
-
 const navDecors = ["{...}", "</>", ">>>", "~/"];
 
 export default function NavBar() {
@@ -45,21 +46,22 @@ export default function NavBar() {
   }, []);
 
   const navItems = [
-    { id: "home",     Icon: TbHome2,        label: t.nav.home },
-    { id: "about",    Icon: FaUserAstronaut, label: t.nav.about },
-    { id: "skills",   Icon: TbBrain,         label: t.nav.skills },
-    { id: "projects", Icon: TbBriefcase,     label: t.nav.projects },
-    { id: "contact",  Icon: TbSend,          label: t.nav.contact },
+    { id: "home", Icon: TbHome2, label: t.nav.home },
+    { id: "about", Icon: FaUserAstronaut, label: t.nav.about },
+    { id: "skills", Icon: TbBrain, label: t.nav.skills },
+    { id: "projects", Icon: TbBriefcase, label: t.nav.projects },
+    { id: "contact", Icon: TbSend, label: t.nav.contact },
   ];
 
   return (
-    <div className="h-screen w-[9.5rem] shrink-0 flex flex-col items-center pt-[2.4rem] pb-[2rem] bg-[rgba(9,11,20,0.88)] border-r border-white/[0.055] backdrop-blur-[14px] relative z-20">
+    <div className="h-screen w-[9.5rem] shrink-0 flex flex-col items-center pt-[2rem] pb-[2rem] bg-[rgba(9,11,20,0.88)] border-r border-white/[0.055] backdrop-blur-[14px] relative z-20">
       {/* Rocket logo */}
-      <div className="relative w-[5rem] h-[5rem] flex items-center justify-center shrink-0 mb-[2.4rem]">
-        <div className="absolute w-[7rem] h-[7rem] rounded-full [background:radial-gradient(circle,rgba(59,130,246,0.2)_0%,transparent_70%)] animate-logoPulse" />
+      <div className="relative w-[6.5rem] h-[6.5rem] flex items-center justify-center shrink-0 mb-[2rem]">
+        <Image src="/simplified_logo.png" alt="Logo" fill priority />
+        {/* <div className="absolute w-[7rem] h-[7rem] rounded-full [background:radial-gradient(circle,rgba(59,130,246,0.2)_0%,transparent_70%)] animate-logoPulse" />
         <FaRocket className="text-[2.8rem] text-white rotate-[-45deg] [filter:drop-shadow(0_0_8px_rgba(59,130,246,0.8))_drop-shadow(0_0_20px_rgba(91,33,182,0.4))] relative z-[2]" />
         <div className="absolute w-[6px] h-[6px] rounded-full bg-[rgba(250,160,60,0.9)] bottom-[-4px] left-[calc(50%_-_3px)] [box-shadow:0_0_10px_rgba(250,140,40,0.9)] animate-exhaust z-[1]" />
-        <div className="absolute w-[4px] h-[4px] rounded-full bg-[rgba(255,200,80,0.7)] bottom-[-10px] left-[calc(50%_-_2px)] [box-shadow:0_0_8px_rgba(255,180,60,0.8)] animate-[exhaust_0.6s_ease-in-out_0.3s_infinite_alternate] z-[1]" />
+        <div className="absolute w-[4px] h-[4px] rounded-full bg-[rgba(255,200,80,0.7)] bottom-[-10px] left-[calc(50%_-_2px)] [box-shadow:0_0_8px_rgba(255,180,60,0.8)] animate-[exhaust_0.6s_ease-in-out_0.3s_infinite_alternate] z-[1]" /> */}
       </div>
 
       {/* Nav + progress track */}
@@ -84,7 +86,9 @@ export default function NavBar() {
                   onClick={() => scrollTo(item.id)}
                   title={item.label}
                 >
-                  <Icon className={`text-[2rem] transition-[filter] duration-[0.18s] ${isActive ? "[filter:drop-shadow(0_0_6px_rgba(59,130,246,0.8))]" : ""}`} />
+                  <Icon
+                    className={`text-[2rem] transition-[filter] duration-[0.18s] ${isActive ? "[filter:drop-shadow(0_0_6px_rgba(59,130,246,0.8))]" : ""}`}
+                  />
                   <span className="text-[0.9rem] font-medium tracking-[0.02em] leading-none">{item.label}</span>
                 </button>
                 {i < navItems.length - 1 && (

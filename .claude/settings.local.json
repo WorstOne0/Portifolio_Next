@@ -5,7 +5,8 @@
       "Bash(pnpm exec:*)",
       "Bash(pnpm run:*)",
       "Bash(pnpm install:*)",
-      "Bash(find \"C:\\\\Users\\\\User\\\\Desktop\\\\Personal Projects\\\\Aplicativos\\\\Portifolio\\\\portifolio\\\\src\\\\app\\\\\\(landing\\)\" -name \"*.tsx\" -o -name \"*.jsx\")"
+      "Bash(find \"C:\\\\Users\\\\User\\\\Desktop\\\\Personal Projects\\\\Aplicativos\\\\Portifolio\\\\portifolio\\\\src\\\\app\\\\\\(landing\\)\" -name \"*.tsx\" -o -name \"*.jsx\")",
+      "Bash(npm install *)"
     ]
   }
 }

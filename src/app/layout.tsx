@@ -27,7 +27,7 @@ export default function RootLayout({
       <head>
         <title>Lucca Gabriel | Portfolio</title>
         <meta name="description" content="Full-stack developer portfolio by Lucca Gabriel." />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/simplified_logo.png" type="image/png" />
       </head>
       <body className={`w-full flex ${nunito.className} antialiased`}>
         <LanguageProvider>
